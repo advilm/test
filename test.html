@@ -1,29 +1,29 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
 <body>
+  <ol id="log"></ol>
+  <script>
+    window.onload = function () {
+      const log = document.getElementById('log')
 
-<ol id="log"></ol>
+      window.onfocus = function () {
+        addToList('focused')
+      };
 
-<script>
-window.onload = function() {
-  const log = document.getElementById('log')
+      window.onblur = function () {
+        addToList('unfocused')
+      };
 
-  window.onfocus = function() { 
-    addToList('focused') 
-  };
+      function addToList(item) {
+        console.log(document.title = item)
 
-  window.onblur = function() { 
-    addToList('unfocused') 
-  };
-
-  function addToList(item) {
-    console.log(document.title = item)
-    
-    const li = document.createElement('li')
-    li.appendChild(document.createTextNode(`${new Date().toLocaleString()} - ${item}`))
-    log.appendChild(li)
-  }
-}
-</script>
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(`${new Date().toLocaleString()} - ${item}`))
+        log.appendChild(li)
+      }
+    }
+  </script>
 </body>
-</html> 
+
+</html>
