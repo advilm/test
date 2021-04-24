@@ -1,0 +1,29 @@
+ <!DOCTYPE html>
+<html>
+<body>
+
+<ol id="log"></ol>
+
+<script>
+window.onload = function() {
+  const log = document.getElementById('log')
+
+  window.onfocus = function() { 
+    addToList('focused') 
+  };
+
+  window.onblur = function() { 
+    addToList('unfocused') 
+  };
+
+  function addToList(item) {
+    console.log(document.title = item)
+    
+    const li = document.createElement('li')
+    li.appendChild(document.createTextNode(`${new Date().toLocaleString()} - ${item}`))
+    log.appendChild(li)
+  }
+}
+</script>
+</body>
+</html> 
